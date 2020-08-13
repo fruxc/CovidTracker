@@ -3,6 +3,7 @@ import { Cards, Chart, Countries } from "./components";
 import styles from "./App.module.css";
 import { fetchData } from "./api";
 import image from "./images/Covidlogo.png";
+import { Box } from "@material-ui/core";
 
 class App extends React.Component {
   state = {
@@ -19,12 +20,14 @@ class App extends React.Component {
   render() {
     const { data, country } = this.state;
     return (
-      <div className={styles.container}>
-        <img className={styles.image} src={image} alt="COVID-19" />
-        <Cards data={data} />
-        <Countries CountryHandler={this.CountryHandler} />
-        <Chart data={data} country={country} />
-      </div>
+        <Box  
+          className={styles.container}
+        >
+          <img className={styles.image} src={image} alt="COVID-19" />
+          <Cards data={data} />
+          <Countries CountryHandler={this.CountryHandler} />
+          <Chart data={data} country={country} />
+        </Box>
     );
   }
 }
